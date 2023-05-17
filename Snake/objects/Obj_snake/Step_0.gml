@@ -3,18 +3,48 @@ right = keyboard_check(global.keyRight);
 up = keyboard_check(global.keyUp)
 down = keyboard_check(global.keyDown);
 
-#region movement
-var _keysPressed = left + right + up + down;
-var 
+if(follow == false){
+	#region movement
+	var _keysPressed = left + right + up + down;
+	if (_keysPressed > 0){
+		if(dir != 2){
+			if(right){
+				dir = 0;	
+			}
+		}
+		if(dir != 1){
+			if(down){
+				dir = 3;	
+			}
+		}
+		if(dir != 0){
+			if(left){
+				dir = 2;
+			}
+		}
+		if(dir != 3){
+			if(up){
+				dir = 1;	
+			}
+		}
+	}
+	image_angle = 90*dir;
+	#endregion
+}else{
+	x = lerp(x,followthisone.x,0.01);
+	y = lerp(y,followthisone.y,0.01);
+}
 
-if (_keysPressed > 0){
-	var _movehor = right-left;
-	var _movever = down-up;
-	hsp = _movehor*movesp;
-	vsp = _movever*movesp;
-	
+
+#region visuals
+
+#endregion
+
+#region death
+if (x<0) || (x>room_width) || (y<0) || (y>room_height){
+	instance_destroy();
 }
 #endregion
 
-x += hsp;
-y += vsp;
+x += lengthdir_x(movesp,image_angle);
+y += lengthdir_y(movesp,image_angle);

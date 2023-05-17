@@ -1,0 +1,9 @@
+{
+  "FolderOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"Spr_snake_head","order":2,"path":"sprites/Spr_snake_head/Spr_snake_head.yy",},
+    {"name":"Obj_apple","order":1,"path":"objects/Obj_apple/Obj_apple.yy",},
+    {"name":"Obj_game","order":3,"path":"objects/Obj_game/Obj_game.yy",},
+    {"name":"Spr_snake_body","order":1,"path":"sprites/Spr_snake_body/Spr_snake_body.yy",},
+  ],
+}
