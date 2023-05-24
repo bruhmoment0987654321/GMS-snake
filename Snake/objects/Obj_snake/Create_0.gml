@@ -1,8 +1,10 @@
 controls();
-movesp = 3;
-length = 1; 
-dir = 0;
-follow = false;
-takeid = id;
-followthisone = id;
-checkonce = false;
+spd = 0;
+movesp = 2;
+dir = 7;
+move = false;
+food_eaten = 0;
+delay = 2;
+alarm[0] = delay;
+
+

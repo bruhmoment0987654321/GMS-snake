@@ -5,5 +5,5 @@ if(!instance_exists(Obj_snake)){
 
 //debug
 if(instance_exists(Obj_snake)){
-	draw_text_transformed_color(30,50,"length: " + string(Obj_snake.length),1,1,0,c_lime,c_lime,c_lime,c_lime,1);
+	draw_text_transformed_color(30,50,"food_eaten: " + string(Obj_snake.food_eaten),1,1,0,c_lime,c_lime,c_lime,c_lime,1);
 }
