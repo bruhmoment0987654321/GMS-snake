@@ -5,4 +5,5 @@ function controls(){
 	global.keyDown = vk_down;
 	global.keyLeft = vk_left;
 	global.keyRight = vk_right;
+	global.keyTime = vk_control;
 }
