@@ -8,3 +8,8 @@ if(game_over = true){
 		room_restart();	
 	}
 }
+
+//making the game harder
+if(score > 10000){
+	
+}	
