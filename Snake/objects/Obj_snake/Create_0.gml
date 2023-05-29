@@ -9,8 +9,6 @@ image_blend = color;
 slow_meter = 100;
 slow_meter_max = 100;
 health_ = 100;
-time_amount = 0.2;
+global.time_amount = 0.2;
 health_max = 100;
-global.things_killed = 0;
-
 

@@ -3,19 +3,19 @@ right = keyboard_check(global.keyRight);
 up = keyboard_check(global.keyUp);
 stop = keyboard_check(global.keyTime);
 kill = mouse_check_button_pressed(mb_left);
-if(move == false) && (up){
+if(up){
 	move = true;
 }
 
 #region slow down time
 if(stop) && (slow_meter > 0){
 	slow_meter -= 0.15;
-	global.time_slowed = time_amount;
+	global.time_slowed = global.time_amount;
 	var snail = instance_nearest(mouse_x,mouse_y,Obj_snail);
 	var spike = instance_nearest(mouse_x,mouse_y,Obj_spikeman);
 	if(place_meeting(mouse_x,mouse_y,spike)){
 		if(kill){
-			spike.health_ -= 1;
+			spike.health_ -= 1+global.upgradeAttackAmount;
 			repeat(5){
 				instance_create_layer(mouse_x,mouse_y,"Enemy",Obj_spike_spark);	
 			}
@@ -23,7 +23,7 @@ if(stop) && (slow_meter > 0){
 	}
 	if(place_meeting(mouse_x,mouse_y,snail)){
 		if(kill){
-			snail.health_ -= 1;
+			snail.health_ -= 1+global.upgradeAttackAmount;
 			repeat(5){
 				instance_create_layer(mouse_x,mouse_y,"Enemy",Obj_snail_spark);	
 			}
@@ -60,19 +60,18 @@ if(slow_meter <= 0){
 }
 #endregion
 #region movement
-	var _keysPressed = left + right + up;
-	if (_keysPressed > 0){
-		if(up){
-			spd = movesp;		
-		}
+	if(up){
+		spd = movesp + global.upgradeSpeedAmount;		
+	}else{
+		spd = 0;	
+	}
+	
+	if(left){
+		direction += dir;	
+	}
 		
-		if(left){
-			direction += dir;	
-		}
-		
-		if(right){
-			direction -= dir;	
-		}
+	if(right){
+		direction -= dir;	
 	}
 	image_angle = direction;
 #endregion
@@ -93,7 +92,6 @@ if (x<0) || (x>room_width) || (y<0) || (y>room_height) || (health_<0){
 	instance_destroy(Obj_tail);
 }
 #endregion
-
-
-x += lengthdir_x(spd*global.time_slowed,image_angle);
-y += lengthdir_y(spd*global.time_slowed,image_angle);
+time_slowed_amount = global.time_slowed-(global.upgradeTimeAmount);
+x += lengthdir_x(spd*(time_slowed_amount),image_angle);
+y += lengthdir_y(spd*(time_slowed_amount),image_angle);
