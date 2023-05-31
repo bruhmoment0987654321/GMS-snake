@@ -46,7 +46,14 @@ switch(Random){
 	case 40:
 		image_index = 1;
 	break;
-	default:
+	case 41:
+	case 42:
+	case 43:
+	case 44:
+	case 45:
+	case 46:
+	case 47:
+	case 48:
 		image_index = 2;
 	break;
 	case 49: image_index = 3; break;

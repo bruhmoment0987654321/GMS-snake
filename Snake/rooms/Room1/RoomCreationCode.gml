@@ -10,15 +10,18 @@ var rand = (room_height/100)*5
 repeat(round(rand)){
 	var dx = floor(random_range(20,room_width-10));
 	var dy = floor(random_range(20,room_height-10));
-	var dx2 = floor(random_range(20,room_width-10));
-	var dy2 = floor(random_range(20,room_height-10));
+
 	if(!point_in_circle(dx,dy,Obj_snake.x,Obj_snake.y,300)){
 		instance_create_layer(dx,dy,"Enemy",Obj_snail);
 	}
+}
+
+repeat((room_width/100)*5){
+	var dx2 = floor(random_range(20,room_width-10));
+	var dy2 = floor(random_range(20,room_height-10));
 	if(!point_in_circle(dx2,dy2,Obj_snake.x,Obj_snake.y,250)){
 		instance_create_layer(dx2,dy2,"Enemy",Obj_spikeman);
-	}
+	}	
 }
-instance_create_layer(0,0,"Cursor",Obj_cursor);
 instance_create_depth(0,0,0,Obj_cam);
 show_debug_message("room width is "+ string(room_width) +" and room height is "+ string(room_height));

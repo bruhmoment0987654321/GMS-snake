@@ -7,7 +7,7 @@ if(up){
 	move = true;
 }
 
-#region slow down time
+#region slow down time and attacking enemies
 if(stop) && (slow_meter > 0){
 	slow_meter -= 0.15;
 	global.time_slowed = global.time_amount;
@@ -16,16 +16,35 @@ if(stop) && (slow_meter > 0){
 	if(place_meeting(mouse_x,mouse_y,spike)){
 		if(kill){
 			spike.health_ -= 1+global.upgradeAttackAmount;
+			if(global.fireeffect){
+				var prob = irandom_range(1,4);
+				if(prob == 4){
+					instance_create_layer(spike.x,spike.y,"Particles",Obj_fire,{
+						image_xscale : spike.image_xscale,
+						image_yscale : spike.image_yscale
+					});
+				}
+			}
 			repeat(5){
-				instance_create_layer(mouse_x,mouse_y,"Enemy",Obj_spike_spark);	
+				instance_create_layer(mouse_x,mouse_y,"Particles",Obj_spike_spark);	
 			}
 		}
 	}
 	if(place_meeting(mouse_x,mouse_y,snail)){
 		if(kill){
 			snail.health_ -= 1+global.upgradeAttackAmount;
+			if(global.fireeffect){
+				var prob = irandom_range(1,4);
+				if(prob == 4){
+					instance_create_layer(snail.x,snail.y,"Particles",Obj_fire,{
+						me : id,
+						image_xscale : snail.image_xscale,
+						image_yscale : snail.image_yscale
+					});
+				}
+			}
 			repeat(5){
-				instance_create_layer(mouse_x,mouse_y,"Enemy",Obj_snail_spark);	
+				instance_create_layer(mouse_x,mouse_y,"Particles",Obj_snail_spark);	
 			}
 		}
 	}
@@ -92,6 +111,5 @@ if (x<0) || (x>room_width) || (y<0) || (y>room_height) || (health_<0){
 	instance_destroy(Obj_tail);
 }
 #endregion
-time_slowed_amount = global.time_slowed-(global.upgradeTimeAmount);
-x += lengthdir_x(spd*(time_slowed_amount),image_angle);
-y += lengthdir_y(spd*(time_slowed_amount),image_angle);
+x += lengthdir_x(spd*global.time_slowed,image_angle);
+y += lengthdir_y(spd*global.time_slowed,image_angle);

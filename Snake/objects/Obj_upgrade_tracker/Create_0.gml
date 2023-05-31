@@ -1,0 +1,10 @@
+global.upgradeTime = 0;
+global.upgradeAttack = 0;
+global.upgradeSpeed = 0;
+global.upgradeSpeedAmount = 0;
+global.upgradeTimeAmount = 0;
+global.upgradeAttackAmount = 0;
+global.xp = 0;
+global.skill_point = 0;
+global.fireeffect = false;
+global.xp_level = 0;
