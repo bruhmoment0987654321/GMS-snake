@@ -37,6 +37,9 @@
     "name": "Spr_snail",
     "path": "sprites/Spr_snail/Spr_snail.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "Spr_snail",
+    "path": "sprites/Spr_snail/Spr_snail.yy",
+  },
   "visible": true,
 }

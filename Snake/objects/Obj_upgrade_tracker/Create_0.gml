@@ -5,6 +5,6 @@ global.upgradeSpeedAmount = 0;
 global.upgradeTimeAmount = 0;
 global.upgradeAttackAmount = 0;
 global.xp = 0;
-global.skill_point = 0;
+global.skill_point = 6;
 global.fireeffect = false;
 global.xp_level = 0;

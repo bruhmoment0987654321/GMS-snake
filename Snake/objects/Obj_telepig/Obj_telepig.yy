@@ -1,13 +1,12 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_spikeman",
+  "name": "Obj_telepig",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"Obj_fire","path":"objects/Obj_fire/Obj_fire.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -35,12 +34,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "Spr_spikeman",
-    "path": "sprites/Spr_spikeman/Spr_spikeman.yy",
+    "name": "Spr_telepig",
+    "path": "sprites/Spr_telepig/Spr_telepig.yy",
   },
-  "spriteMaskId": {
-    "name": "Spr_spikeman",
-    "path": "sprites/Spr_spikeman/Spr_spikeman.yy",
-  },
+  "spriteMaskId": null,
   "visible": true,
 }

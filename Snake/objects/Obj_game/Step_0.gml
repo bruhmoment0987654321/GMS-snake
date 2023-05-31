@@ -80,6 +80,7 @@ switch(global.upgradeTime){
 }
 #endregion
 
+#region creating fire sparks
 if(global.fireeffect = true){
 	if(mouse_check_button_pressed(mb_left)){
 		var fireamount = 8;
@@ -88,8 +89,18 @@ if(global.fireeffect = true){
 		}
 	}
 }
+#endregion
+#region spawning the pig wave
 
-//making the game harder
-if(score > 10000){
-	
-}	
+if(global.xp_level > 0) && (!wave1Spawned){
+	var repet = floor(room_width/100);
+	repeat(repet){
+		instance_create_layer(0,0,"Telepig",Obj_telepig,{
+		x : floor(random_range(20,room_width-10)),
+		y : floor(random_range(20,room_height-10))
+		});
+	}
+	wave1Spawned = true;
+	show_message(string(repet));
+}
+#endregion
