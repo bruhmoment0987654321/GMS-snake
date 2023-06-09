@@ -3,7 +3,7 @@ right = keyboard_check(global.keyRight);
 up = keyboard_check(global.keyUp);
 stop = keyboard_check(global.keyTime);
 kill = mouse_check_button_pressed(mb_left);
-if(up){
+if(up) && (!move){
 	move = true;
 }
 
@@ -13,6 +13,7 @@ if(stop) && (slow_meter > 0){
 	global.time_slowed = global.time_amount;
 	var snail = instance_nearest(mouse_x,mouse_y,Obj_snail);
 	var spike = instance_nearest(mouse_x,mouse_y,Obj_spikeman);
+	var pig = instance_nearest(mouse_x,mouse_y,Obj_telepig);
 	if(place_meeting(mouse_x,mouse_y,spike)){
 		if(kill){
 			spike.health_ -= 1+global.upgradeAttackAmount;
@@ -27,6 +28,20 @@ if(stop) && (slow_meter > 0){
 			}
 			repeat(5){
 				instance_create_layer(mouse_x,mouse_y,"Particles",Obj_spike_spark);	
+			}
+		}
+	}
+	if(place_meeting(mouse_x,mouse_y,pig)){
+		if(kill){
+			pig.health_ -= 1+global.upgradeAttackAmount;
+			if(global.fireeffect){
+				var prob = irandom_range(1,4);
+				if(prob == 4){
+					instance_create_layer(pig.x,pig.y,"Particles",Obj_fire,{
+						image_xscale : pig.image_xscale,
+						image_yscale : pig.image_yscale
+					});
+				}	
 			}
 		}
 	}
@@ -80,9 +95,7 @@ if(slow_meter <= 0){
 #endregion
 #region movement
 	if(up){
-		spd = movesp + global.upgradeSpeedAmount;		
-	}else{
-		spd = 0;	
+		spd = movesp;		
 	}
 	
 	if(left){
@@ -95,15 +108,15 @@ if(slow_meter <= 0){
 	image_angle = direction;
 #endregion
 #region snake head and tail touching enemies
-/*with(Obj_tail){
+with(Obj_tail){
 	if(place_meeting(x,y,Obj_enemy_par)){
-		Obj_snake.health_-= 5;	
+		Obj_snake.health_-= 0.007;	
 	}
 }
 if(place_meeting(x,y,Obj_enemy_par)){
-	health_ -= 100;
+	health_ -= 0.007;
 }
-*/
+
 #endregion
 #region death
 if (x<0) || (x>room_width) || (y<0) || (y>room_height) || (health_<0){
@@ -111,5 +124,5 @@ if (x<0) || (x>room_width) || (y<0) || (y>room_height) || (health_<0){
 	instance_destroy(Obj_tail);
 }
 #endregion
-x += lengthdir_x(spd*global.time_slowed,image_angle);
-y += lengthdir_y(spd*global.time_slowed,image_angle);
+x += lengthdir_x((spd + global.upgradeSpeedAmount)*global.time_slowed,image_angle);
+y += lengthdir_y((spd + global.upgradeSpeedAmount)*global.time_slowed,image_angle);

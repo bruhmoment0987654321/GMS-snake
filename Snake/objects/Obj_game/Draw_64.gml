@@ -1,9 +1,13 @@
 draw_set_font(Ft_pixel_font);
 draw_set_color(c_dkgray);
-draw_text(50,50,"Score: " + string(score));
+if(room != Room2){
+	draw_text(50,50,"Score: " + string(score));
+}
 if(!instance_exists(Obj_snake)){
 	draw_text_transformed_color(350,400,"GAME OVER! :{",5,5,0,c_lime,c_lime,c_lime,c_lime,1);
 }
+
+
 if(instance_exists(Obj_snake)){
 	//stamina bar
 	draw_sprite(Spr_health_back,0,9,65);

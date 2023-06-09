@@ -23,3 +23,4 @@ instance_create_layer(1275,550,"Snake",Obj_Upgrade_time,{
 })
 
 wave1Spawned = false;
+bossSpawned = false;

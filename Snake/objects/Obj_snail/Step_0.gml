@@ -7,9 +7,6 @@ if(instance_exists(Obj_snake)){
 			if(!point_in_circle(Obj_snake.x,Obj_snake.y,x,y,rad)){
 				state = "stand still";
 			}
-			if(place_meeting(x,y,Obj_fire)){
-				state = "burning";
-			}
 		break;
 		case "burning":
 			health_ -= 0.1;
@@ -34,6 +31,10 @@ if(instance_exists(Obj_snake)){
 			sprite_index = Spr_snail_dead;
 		break;
 	}
+}
+
+if(place_meeting(x,y,Obj_fire)){
+	state = "burning";
 }
 image_speed = global.time_slowed;
 if(hsp != 0) image_xscale = sign(hsp);

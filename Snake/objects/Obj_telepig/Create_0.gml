@@ -1,4 +1,5 @@
 state = "stand still";
-rad = 300;
-
-health_ = 15;
+rad = 400;
+timer = 3*room_speed;
+shoottimer = 2*room_speed;
+health_ = 3;
