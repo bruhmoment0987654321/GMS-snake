@@ -3,11 +3,15 @@ right = keyboard_check(global.keyRight);
 up = keyboard_check(global.keyUp);
 stop = keyboard_check(global.keyTime);
 kill = mouse_check_button_pressed(mb_left);
+shoot = keyboard_check_pressed(global.keyShock);
 if(up) && (!move){
 	move = true;
 }
 
 #region slow down time and attacking enemies
+if(shoot) && (global.spark_effect){
+	instance_create_layer(x,y,"Snake")	
+}
 if(stop) && (slow_meter > 0){
 	slow_meter -= 0.15;
 	global.time_slowed = global.time_amount;
