@@ -10,6 +10,7 @@
 		global.xp = 0;
 		global.skill_point = 0;
 		global.fireeffect = false;
+		global.spark_effect = false;
 		global.xp_level = 0;
 		game_over = true;
 	}
@@ -32,11 +33,15 @@
 		if(global.xp_level >= 4){
 			max_xp += 1500;	
 		}
-		if(global.xp_level == 5){
+		if(global.xp_level >= 5){
 			max_xp += 2000;
 		}
 		global.skill_point += 0.5;
 		global.xp_level += 0.5;
+	}
+	if(global.xp_level > 6){
+		show_message("Bye.")
+		room = Rm_end;
 	}
 #endregion
 #region upgrades

@@ -36,6 +36,12 @@ if(instance_exists(Obj_snake)){
 if(place_meeting(x,y,Obj_fire)){
 	state = "burning";
 }
+if(place_meeting(x,y,Obj_snakespark)){
+	health_ -= 0.5;
+	with(other){
+		instance_destroy();	
+	}
+}
 image_speed = global.time_slowed;
 if(hsp != 0) image_xscale = sign(hsp);
 if(health_ <= 0) state = "dead"

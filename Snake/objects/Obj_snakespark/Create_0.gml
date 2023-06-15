@@ -1,1 +1,1 @@
-life = room_speed*0.5;
+life = room_speed*1;

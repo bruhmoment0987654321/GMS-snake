@@ -13,12 +13,4 @@ function wave_spawn(_wave_type){
 
 		show_message(string(repet));
 	}
-	if(_wave_type == "big snail"){
-		repeat(3){
-			var xx = irandom_range(-200,200);
-			var yy = irandom_range(-200,200);
-			instance_create_layer(room_width/2+xx,room_height/2+yy,"Enemy",Obj_big_snail);
-		}
-		show_message("They're here. Run");
-	}
 }

@@ -10,7 +10,10 @@ if(up) && (!move){
 
 #region slow down time and attacking enemies
 if(shoot) && (global.spark_effect){
-	instance_create_layer(x,y,"Snake")	
+	instance_create_layer(x,y,"Snake", Obj_snakespark,{
+		direction : image_angle,
+		speed : 30
+	});	
 }
 if(stop) && (slow_meter > 0){
 	slow_meter -= 0.15;

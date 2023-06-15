@@ -46,5 +46,11 @@ if(instance_exists(Obj_snake)){
 if(place_meeting(x,y,Obj_fire)){
 	health_ -= 0.1;
 }
+if(place_meeting(x,y,Obj_snakespark)){
+	health_ -= 1;
+	with(other){
+		instance_destroy();	
+	}
+}
 image_speed = global.time_slowed;
 if(health_ <= 0) state = "dead";
